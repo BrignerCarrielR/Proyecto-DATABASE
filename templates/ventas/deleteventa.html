@@ -1,0 +1,8 @@
+{% extends 'delete.html' %}
+{% load static %}
+
+
+{% block controls %}
+    {% csrf_token %}
+    <p>Estas seguro de eliminar la compra a -> Provedor: "{{ object.compra }}, Licor: {{ object.licor }}, Cantidad: {{ object.cantidad }}, Total: {{ object }}"?</p>
+{% endblock %}

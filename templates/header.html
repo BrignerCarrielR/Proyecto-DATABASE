@@ -1,0 +1,55 @@
+<nav class="navbar navbar-expand-lg bg-success opacity-75">
+    <div class="container-fluid">
+      <a class="navbar-brand text-light" href="/">
+          LICORERIA</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active text-light" aria-current="page" href="/">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-light" href="/venta">Ventas</a>
+          </li>
+            <li class="nav-item">
+            <a class="nav-link text-light" href="/compra">Compras</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-light" href="/admin/app">Mantenimientos</a>
+          </li>
+        </ul>
+      </div>
+        <div class="reloj text-light text-center row">
+          <p class="fecha col"></p>
+          <p class="tiempo  col"></p>
+        </div>
+        </div>
+    </div>
+    <script>
+      const $tiempo = document.querySelector('.tiempo'),
+      $fecha = document.querySelector('.fecha');
+
+      function digitalClock(){
+          let f = new Date(),
+          dia = f.getDate(),
+          mes = f.getMonth() + 1,
+          anio = f.getFullYear(),
+          diaSemana = f.getDay();
+
+          dia = ('0' + dia).slice(-2);
+          mes = ('0' + mes).slice(-2)
+
+          let timeString = f.toLocaleTimeString();
+          $tiempo.innerHTML = timeString;
+
+          let semana = ['DOMINGO','LUNES','MARTES','MIERCOLES','JUEVES','VIERNES','SABADO'];
+          let showSemana = (semana[diaSemana]);
+          $fecha.innerHTML = `${anio}-${mes}-${dia} ${showSemana}`
+      }
+      setInterval(() => {
+          digitalClock()
+      }, 1000);
+    </script>
+  </nav>

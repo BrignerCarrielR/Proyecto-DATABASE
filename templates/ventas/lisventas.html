@@ -1,0 +1,39 @@
+{% extends 'consulta.html' %}
+{% load static %}
+
+{% block columns %}
+    <tr class="text-light text-center">
+        <th scope="col">#</th>
+        <th scope="col">Empleado</th>
+        <th scope="col">Cliente</th>
+        <th scope="col">Fecha</th>
+        <th scope="col">Licor</th>
+        <th scope="col">Precio</th>
+        <th scope="col">Cantidad</th>
+        <th scope="col">Total</th>
+        <th scope="col">Acciones</th>
+      </tr>
+{% endblock %}
+
+{% block rows %}
+   {% for object in ventas %}
+          <tr>
+              <th scope="row">{{ object.id }}</th>
+              <td>{{ object.venta.empleado }}</td>
+              <td>{{ object.venta.cliente }}</td>
+              <td>{{ object.venta.fecha }}</td>
+              <td>{{ object.licor }}</td>
+              <td>{{ object.licor.precio }}</td>
+              <td>{{ object.cantidad }}</td>
+              <td>{{ object }}</td>
+              <td class="text-center">
+                  <a class='btn text-light bg-primary opacity-75' href="{% url 'detalleventa' object.id %}"> Detalle </a>
+                  <a class='btn text-light bg-success opacity-75' href="{% url 'actualizarventa' object.id %}"> Actualizar </a>
+                  <a class='btn text-light bg-danger opacity-75' href="{% url 'deleteventa' object.id %}"> Eliminar </a>
+              </td>
+{#              <td>#}
+{#                  <a class='btn text-light bg-success opacity-75' href="{% url 'detalleventa' object.id %}"> Detalle </a>#}
+{#              </td>#}
+          </tr>
+    {% endfor %}
+{% endblock %}

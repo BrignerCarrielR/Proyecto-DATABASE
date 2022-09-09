@@ -1,0 +1,74 @@
+{% extends 'detalle.html' %}
+{% load static %}
+
+{% block contenido %}
+<div class="container border shadow-lg p-3 mb-5 bg-body rounded">
+    <div class="row">
+        <div class="col"><h3 class="text-success">LICORERIA</h3>
+            <h6>Telefono: 000000000</h6>
+            <h6>Milagros, 214415</h6>
+            <h6>Francisco y la T</h6>
+        </div>
+        <div class="col"><h3 class="text-success">FACTURA</h3>
+            <br><br>
+            <div class="col"><table class="table">
+                <thead class="table-success">
+                  <tr>
+                    <th scope="col">Factura #</th>
+                    <th scope="col">Fecha</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">{{ object.venta.id }}</th>
+                    <td>{{ object.venta.fecha }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div></div>
+    </div>
+    <div class="row">
+        <div class="col"><h3 class="text-success">Factura A CLiente</h3>
+            <h6>Cliente: {{ object.venta.cliente.nombre }}</h6>
+            <h6>Dirección: {{ object.venta.cliente.direccion }}</h6>
+            <h6>Telefono: {{ object.venta.cliente.telefono }}</h6>
+        </div>
+        <div class="col"><div class="col"><table class="table">
+            <thead class="table-success">
+              <tr>
+                <th scope="col">Cliente    CL #</th>
+                <th scope="col">Correo @</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">{{ object.venta.cliente.cedula }}</th>
+                <td>{{ object.venta.cliente.correo }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div></div>
+    </div>
+    <br>
+    <div>
+        <table class="table table-bordered">
+            <thead class="table-success">
+              <tr>
+                <th scope="col">Decripcion</th>
+                <th scope="col">Cantidad</th>
+                <th scope="col">Precio Unitario</th>
+                <th scope="col">Monto</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">{{ object.licor }}</th>
+                <td>{{ object.cantidad }}</td>
+                <td>$ {{ object.licor.precio }}</td>
+                <td>{{ object }}</td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+</div>
+{% endblock %}

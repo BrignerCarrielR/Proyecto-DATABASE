@@ -1,0 +1,62 @@
+{% extends 'detalle.html' %}
+{% load static %}
+
+{% block contenido %}
+    {% csrf_token %}
+        <div class="container border shadow-lg p-3 mb-5 bg-body rounded">
+            <div class="row">
+                <div class="col"><h3 class="text-success">LICORERIA</h3>
+                    <h6>Telefono: 0988784155</h6>
+                    <h6>Milagros, 214415</h6>
+                    <h6>Francisco y la T</h6>
+                </div>
+                <div class="col"><h3 class="text-success">FACTURA</h3>
+                    <br><br>
+                    <div class="col"><table class="table">
+                        <thead class="table-success">
+                          <tr>
+
+                                <th scope="col">Factura</th>
+                                <th scope="col">Fecha</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th scope="row">{{ object.id }}</th>
+                            <td>{{ object.compra.fecha }}</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div></div>
+            </div>
+            <div class="row">
+                <div class="col"><h3 class="text-success">Factura A Proveedor </h3>
+                    <h6>Proveedor: {{ object.compra.proveedor.nombre }}</h6>
+                    <h6>LICORERIA</h6>
+                    <h6>Telefono: {{ object.compra.proveedor.telefono }}</h6>
+                </div>
+
+            </div>
+            <br>
+            <div>
+                <table class="table table-bordered">
+                    <thead class="table-success">
+                      <tr>
+                        <th scope="col">Decripcion</th>
+                        <th scope="col">Cantidad</th>
+                        <th scope="col">Precio Unitario</th>
+                        <th scope="col">Monto</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">{{ object.licor.nombre }}</th>
+                        <td>{{ object.cantidad }}</td>
+                        <td>$ {{ object.licor.precio }}</td>
+                        <td>{{ object }}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+{% endblock %}

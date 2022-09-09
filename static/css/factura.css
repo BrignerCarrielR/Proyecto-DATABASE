@@ -1,0 +1,40 @@
+.Factura0{
+  border: solid;
+  margin: 20%;
+  border-radius: 1em;
+}
+
+.Nombre{
+  width: 50%;
+  text-align: center;
+  border-radius: 1em;
+  margin-top:2%;
+}
+
+.Cabecera2{
+  width: 50%;
+  margin: 50%;
+  margin-top:-5%;
+  text-align: center;
+  border-radius: 1em;
+}
+
+.Quemado{
+  width: 50%;
+  margin-top: -47%;
+  text-align: center;
+  border-radius: 1em;
+}
+
+.Fecha{
+  width: 50%;
+  margin-left:50%;
+  margin-top: -15%;
+  border-radius: 1em;
+  text-align: center;
+}
+
+.Descripcion{
+  margin-top: 60px;
+  width: 100%;
+}

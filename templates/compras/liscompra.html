@@ -1,0 +1,34 @@
+{% extends 'consulta.html' %}
+{% load static %}
+
+{% block columns %}
+    <tr class="text-light text-center">
+        <th scope="col">#</th>
+        <th scope="col">Provedor</th>
+        <th scope="col">Licor</th>
+        <th scope="col">Fecha</th>
+        <th scope="col">Precio</th>
+        <th scope="col">Cantidad</th>
+        <th scope="col">Total</th>
+        <th scope="col">Acciones</th>
+      </tr>
+{% endblock %}
+
+{% block rows %}
+    {% for object in compras %}
+          <tr>
+              <th scope="row">{{ object.id }}</th>
+              <td>{{ object.compra }}</td>
+              <td>{{ object.licor }}</td>
+              <td>{{ object.compra.fecha }}</td>
+              <td>$ {{ object.licor.precio }}</td>
+              <td>{{ object.cantidad }}</td>
+              <td>{{ object }}</td>
+              <td class="text-center">
+                  <a class='btn text-light bg-primary opacity-75' href="{% url 'detalleCompra' object.id %}"> Detalle </a>
+                  <a class='btn text-light bg-success opacity-75' href="{% url 'actualizarcompra' object.id %}"> Actualizar </a>
+                  <a class='btn text-light bg-danger opacity-75' href="{% url 'deletecompra' object.id %}"> Eliminar </a>
+              </td>
+          </tr>
+    {% endfor %}
+{% endblock %}
